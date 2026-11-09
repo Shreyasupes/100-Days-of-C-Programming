@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, digit, result = 0, place = 1;
+
+    printf("Enter a binary number: ");
+    scanf("%d", &n);
+
+    while (n != 0)
+    {
+        digit = n % 10;
+
+        if (digit == 0)
+        {
+            digit = 1;
+        }
+        else if (digit == 1)
+        {
+            digit = 0;
+        }
+        else
+        {
+            printf("Invalid binary number!");
+            return 1;
+        }
+
+        result = result + digit * place;
+        place = place * 10;
+
+        n = n / 10;
+    }
+
+    printf("1's Complement = %d\n", result);
+
+    return 0;
+}
